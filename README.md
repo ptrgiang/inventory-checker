@@ -19,14 +19,18 @@ Repository: https://github.com/ptrgiang/inventory-checker
 
 ```text
 inventory-checker/
-+-- assets/             # Extension icons
-+-- popup/
-|   +-- index.html      # Extension window UI
-|   +-- popup.js        # Inventory check, sorting, CSV, and XLSX export logic
-|   +-- style.css       # Extension window styles
-+-- background.js       # Opens/focuses the extension popup window
-+-- manifest.json       # Chrome extension manifest
-+-- README.md           # Install, usage, and publishing notes
+|-- assets/
+|   |-- icon-16.png
+|   |-- icon-32.png
+|   |-- icon-48.png
+|   `-- icon-128.png
+|-- popup/
+|   |-- index.html      # Extension window UI
+|   |-- popup.js        # Inventory checks, sorting, CSV, and XLSX export
+|   `-- style.css       # Extension window styles
+|-- background.js       # Opens and focuses the extension popup window
+|-- manifest.json       # Chrome extension manifest
+`-- README.md           # Install, usage, and publishing notes
 ```
 
 ## Installation
@@ -100,7 +104,3 @@ background.js
 manifest.json
 README.md
 ```
-
-## License
-
-No license file is currently included. Add one before public distribution if you want to define reuse rights.
