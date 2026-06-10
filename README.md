@@ -26,20 +26,32 @@ inventory-checker/
 |   +-- style.css       # Extension window styles
 +-- background.js       # Opens/focuses the extension popup window
 +-- manifest.json       # Chrome extension manifest
++-- README.md           # Install, usage, and publishing notes
 ```
 
 ## Installation
 
-See [INSTALLATION.md](INSTALLATION.md) for detailed install, update, and publishing steps.
+This project is a plain Manifest V3 browser extension. It does not require Node.js, npm, a server, or a build step.
 
-Quick local install:
+Run this in PowerShell to download the latest `main` branch into `InventoryChecker` under your user folder:
 
-1. Download or clone this repository.
-2. Open Chrome or Edge extension settings.
-3. Enable developer mode.
-4. Choose **Load unpacked**.
-5. Select the repository folder that contains `manifest.json`.
-6. Pin the extension and click the toolbar icon to open Inventory Checker.
+```powershell
+$Zip = "$env:TEMP\inventory-checker-main.zip"
+$Out = "$env:USERPROFILE\InventoryChecker"
+Invoke-WebRequest "https://github.com/ptrgiang/inventory-checker/archive/refs/heads/main.zip" -OutFile $Zip
+Remove-Item $Out -Recurse -Force -ErrorAction SilentlyContinue
+Expand-Archive $Zip -DestinationPath $env:USERPROFILE -Force
+Rename-Item "$env:USERPROFILE\inventory-checker-main" "InventoryChecker"
+Write-Host "Extension folder: $Out"
+```
+
+Then load it in your browser:
+
+1. Open Chrome and go to `chrome://extensions`, or open Edge and go to `edge://extensions`.
+2. Enable **Developer mode**.
+3. Click **Load unpacked**.
+4. Select the `InventoryChecker` folder printed by the PowerShell command.
+5. Pin the extension and click the toolbar icon to open Inventory Checker.
 
 ## Usage
 
@@ -87,7 +99,6 @@ popup/
 background.js
 manifest.json
 README.md
-INSTALLATION.md
 ```
 
 ## License
